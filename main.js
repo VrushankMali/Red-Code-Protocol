@@ -5,9 +5,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const messages = [
         "INITIALIZING RED CODE PROTOCOL...",
-        "ACCESSING CORE MEMORY...",
         "SCANNING EMOTIONAL SUBSYSTEM...",
-        "CALIBRATING RESPONSE MATRIX...",
         "SEARCHING...",
         "TARGET FOUND.",
         "ESTABLISHING CONNECTION..."
@@ -18,10 +16,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
     function typeMessage(message, callback) {
         let index = 0;
-        log.innerHTML = "";
+
+        // Create a new line element
+        const line = document.createElement("div");
+        log.appendChild(line);
 
         const typing = setInterval(() => {
-            log.innerHTML += message[index];
+            line.textContent += message[index];
             index++;
 
             if (index >= message.length) {
@@ -34,6 +35,19 @@ window.addEventListener("DOMContentLoaded", () => {
         }, 40);
     }
 
+    function showNextMessage() {
+        if (messageIndex >= messages.length) {
+            return;
+        }
+
+        typeMessage(messages[messageIndex], () => {
+            messageIndex++;
+            showNextMessage();
+        });
+    }
+
+    showNextMessage();
+
     /*function addLog() {
         if (messageIndex < messages.length) {
             log.innerHTML = messages[messageIndex];
@@ -42,10 +56,10 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }*/
 
-    const logInterval = setInterval(addLog, 600);
+    //const logInterval = setInterval(addLog, 600);
 
     const progressInterval = setInterval(() => {
-        progress += Math.random() * 3 + 1;
+        progress += Math.random() * 1.3 + 0.7;
 
         if (progress > 100) progress = 100;
 
@@ -53,7 +67,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
         if (progress === 100) {
             clearInterval(progressInterval);
-            clearInterval(logInterval);
+            //clearInterval(logInterval);
 
             setTimeout(startExperience, 500);
         }
