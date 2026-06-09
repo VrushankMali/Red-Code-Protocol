@@ -1,0 +1,57 @@
+#boot {
+    position: fixed;
+    inset: 0;
+
+    background: black;
+    color: red;
+
+    font-family: monospace;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    transform: translateY(-10%);
+}
+
+#log {
+    text-align: center;
+    line-height: 1.8;
+
+    animation: breathe 4s ease-in-out infinite;
+}
+
+#progress-container {
+    width: 300px;
+    height: 2px;
+
+    background: #220000;
+
+    margin-top: 30px;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0%;
+  background: red;
+  transition: width 0.1s linear;
+}
+
+@keyframes breathe {
+    0% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.02);
+    }
+
+    100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+}

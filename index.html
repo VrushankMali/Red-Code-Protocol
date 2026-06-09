@@ -4,6 +4,7 @@
         <meta name="theme-color" content="#000000">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Red Code Protocol</title>
+        <link rel="stylesheet" href="style.css">
         <style>
             body {
                 margin: 0;
@@ -18,8 +19,17 @@
     </head>
 
     <body>
+        <div id="boot">
+            <div id="log"></div>
+            
+            <div id="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+        </div>
+
         <canvas id="scene"></canvas>
 
+        <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
         <script src="main.js"></script>
     </body>
 </html>
