@@ -29,7 +29,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 clearInterval(typing);
 
                 if (callback) {
-                    setTimeout(callback, 400);
+                    setTimeout(callback, 100);
                 }
             }
         }, 40);
@@ -59,7 +59,7 @@ window.addEventListener("DOMContentLoaded", () => {
     //const logInterval = setInterval(addLog, 600);
 
     const progressInterval = setInterval(() => {
-        progress += Math.random() * 1.3 + 0.7;
+        progress += Math.random() * 2.6 + 0.7;
 
         if (progress > 100) progress = 100;
 
@@ -69,7 +69,7 @@ window.addEventListener("DOMContentLoaded", () => {
             clearInterval(progressInterval);
             //clearInterval(logInterval);
 
-            setTimeout(startExperience, 500);
+            setTimeout(startExperience, 100);
         }
     }, 100);
 
