@@ -2,6 +2,16 @@ window.addEventListener("DOMContentLoaded", () => {
     const boot = document.getElementById("boot");
     const log = document.getElementById("log");
     const bar = document.getElementById("progress-bar");
+    const music = document.getElementById("bgMusic");
+
+    window.addEventListener("", () => {
+        console.log("Clicked");
+        music.currentTime = 111;
+        music.volume = 0.3;
+        music.play().catch(err => {
+            console.error(err);
+        });
+    }, { once: true });
 
     const messages = [
         "INITIALIZING RED CODE PROTOCOL...",
@@ -74,9 +84,28 @@ window.addEventListener("DOMContentLoaded", () => {
     }, 100);
 
     function startExperience() {
-
         boot.style.transition = "opacity 1s ease";
         boot.style.opacity = 0;
+
+        //music.volume = 0.3;
+        //music.currentTime = 111;
+        //music.play();
+
+        //Fade out music
+        /*const fade = setInterval(() => {
+            if(music.volume > 0.01) {
+                music.volume -= 0.04;
+            }
+            else {
+                music.volume = 0;
+                music.pause();
+                clearInterval(fade);
+            }
+        }, 100);*/
+
+        /*music.play().catch(error => {
+            console.log("Autoplay blocked:", error);
+        });*/
 
         setTimeout(() => {
             boot.style.display = "none";
