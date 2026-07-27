@@ -3,15 +3,17 @@ window.addEventListener("DOMContentLoaded", () => {
     const log = document.getElementById("log");
     const bar = document.getElementById("progress-bar");
     const music = document.getElementById("bgMusic");
+    const startScreen = document.getElementById("start-screen");
+    const initialize = document.getElementById("initialize");
 
-    window.addEventListener("", () => {
+    /*window.addEventListener("", () => {
         console.log("Clicked");
         music.currentTime = 111;
         music.volume = 0.3;
         music.play().catch(err => {
             console.error(err);
         });
-    }, { once: true });
+    }, { once: true });*/
 
     const messages = [
         "INITIALIZING RED CODE PROTOCOL...",
@@ -56,7 +58,33 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    showNextMessage();
+    initialize.addEventListener("click", () => {
+
+        music.currentTime = 111;
+        music.volume = 0.3;
+
+        music.play().catch(err => {
+            console.error(err);
+        });
+
+        startScreen.style.transition = "opacity 1s ease";
+        startScreen.style.opacity = 0;
+
+        setTimeout(() => {
+
+            startScreen.style.display = "none";
+
+            boot.style.display = "flex";
+
+            showNextMessage();
+
+            startProgress();
+
+        }, 1000);
+
+    }, { once: true });
+
+    //showNextMessage();
 
     /*function addLog() {
         if (messageIndex < messages.length) {
@@ -68,20 +96,22 @@ window.addEventListener("DOMContentLoaded", () => {
 
     //const logInterval = setInterval(addLog, 600);
 
-    const progressInterval = setInterval(() => {
-        progress += Math.random() * 2.6 + 0.7;
+    function startProgress() {
+        const progressInterval = setInterval(() => {
+            progress += Math.random() * 2.6 + 0.7;
 
-        if (progress > 100) progress = 100;
+            if (progress > 100) progress = 100;
 
-        bar.style.width = progress + "%";
+            bar.style.width = progress + "%";
 
-        if (progress === 100) {
-            clearInterval(progressInterval);
-            //clearInterval(logInterval);
+            if (progress === 100) {
+                clearInterval(progressInterval);
+                //clearInterval(logInterval);
 
-            setTimeout(startExperience, 100);
-        }
-    }, 100);
+                setTimeout(startExperience, 100);
+            }
+        }, 100);
+    }
 
     function startExperience() {
         boot.style.transition = "opacity 1s ease";
