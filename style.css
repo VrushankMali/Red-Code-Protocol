@@ -21,7 +21,7 @@
     margin: 0;
     margin-bottom: 45px;
 
-    font-family: "Segoe UI", sans-serif;
+    font-family: "Orbitron";
 
     font-size: clamp(2.2rem, 4vw, 4.8rem);
 
@@ -52,6 +52,8 @@
 
     border-radius: 2px;
 
+    font-family: "Orbitron";
+    
     font-size: 15px;
 
     letter-spacing: 3px;
@@ -92,7 +94,7 @@
     background: black;
     color: red;
 
-    font-family: monospace;
+    font-family: "Orbitron";
 
     display: flex;
     flex-direction: column;
@@ -141,4 +143,14 @@
         opacity: 0.6;
         /*transform: scale(1);*/
     }
+}
+
+/*@font-face {
+    font-family: "Justov";
+    src: url("fonts/Justov.woff2") format("woff2");
+}*/
+
+@font-face {
+    font-family: "Orbitron";
+    src: url("fonts/Orbitron.ttf") format("truetype");
 }
