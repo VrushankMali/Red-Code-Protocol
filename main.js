@@ -2,7 +2,8 @@ window.addEventListener("DOMContentLoaded", () => {
     const boot = document.getElementById("boot");
     const log = document.getElementById("log");
     const bar = document.getElementById("progress-bar");
-    const music = document.getElementById("bgMusic");
+    const buttonSound = document.getElementById("buttonSound")
+    const bgMusic = document.getElementById("bgMusic");
     const startScreen = document.getElementById("start-screen");
     const initialize = document.getElementById("initialize");
 
@@ -59,28 +60,35 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     initialize.addEventListener("click", () => {
+        // Play button activation sound
+        buttonSound.currentTime = 0;
+        buttonSound.volume = 0.8;
+        buttonSound.play();
 
-        music.currentTime = 111;
-        music.volume = 0.3;
+        // Wait for click sound, then start music
+        setTimeout(() => {
+            bgMusic.currentTime = 111;
+            bgMusic.volume = 0.5;
 
-        music.play().catch(err => {
-            console.error(err);
-        });
+            bgMusic.play().catch(err => {
+                console.error(err);
+            });
+        }, 1500);
 
         startScreen.style.transition = "opacity 1s ease";
-        startScreen.style.opacity = 0;
+            startScreen.style.opacity = 0;
 
-        setTimeout(() => {
+            setTimeout(() => {
 
-            startScreen.style.display = "none";
+                startScreen.style.display = "none";
 
-            boot.style.display = "flex";
+                boot.style.display = "flex";
 
-            showNextMessage();
+                showNextMessage();
 
-            startProgress();
+                startProgress();
 
-        }, 1000);
+            }, 1000);
 
     }, { once: true });
 
