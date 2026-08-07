@@ -61,7 +61,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     initialize.addEventListener("click", () => {
         // Play button activation sound
-        buttonSound.currentTime = 0;
+        buttonSound.currentTime = 0.2;
         buttonSound.volume = 0.8;
         buttonSound.play();
 
@@ -76,19 +76,19 @@ window.addEventListener("DOMContentLoaded", () => {
         }, 1500);
 
         startScreen.style.transition = "opacity 1s ease";
-            startScreen.style.opacity = 0;
+        startScreen.style.opacity = 0;
 
-            setTimeout(() => {
+        setTimeout(() => {
 
-                startScreen.style.display = "none";
+            startScreen.style.display = "none";
 
-                boot.style.display = "flex";
+            boot.style.display = "flex";
 
-                showNextMessage();
+            showNextMessage();
 
-                startProgress();
+            startProgress();
 
-            }, 1000);
+        }, 1000);
 
     }, { once: true });
 
