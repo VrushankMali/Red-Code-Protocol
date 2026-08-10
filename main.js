@@ -66,13 +66,68 @@ window.addEventListener("DOMContentLoaded", () => {
         buttonSound.play();
 
         // Wait for click sound, then start music
-        setTimeout(() => {
+        /*setTimeout(() => {
             bgMusic.currentTime = 111;
             bgMusic.volume = 0.5;
 
             bgMusic.play().catch(err => {
                 console.error(err);
             });
+        }, 1500);*/
+
+        setTimeout(() => {
+            const startTime = 111; // 1:51
+            const endTime = 142;   // 2:30
+            const fadeInDuration = 2600;  // 3 seconds
+            const fadeOutDuration = 4000; // 4 seconds
+            const maxVolume = 0.8;
+
+            bgMusic.currentTime = startTime;
+            bgMusic.volume = 0;
+
+            bgMusic.play().catch(err => {
+                console.error(err);
+                return;
+            });
+
+            // FADE IN
+            const fadeIn = setInterval(() => {
+
+                bgMusic.volume += maxVolume / (fadeInDuration / 100);
+
+                if (bgMusic.volume >= maxVolume) {
+                    bgMusic.volume = maxVolume;
+                    clearInterval(fadeIn);
+                }
+
+            }, 100);
+
+            // Check when we reach the ending point
+            const musicMonitor = setInterval(() => {
+
+                if (bgMusic.currentTime >= endTime - (fadeOutDuration / 1000)) {
+
+                    clearInterval(musicMonitor);
+                    clearInterval(fadeIn);
+
+                    // FADE OUT
+                    const fadeOut = setInterval(() => {
+
+                        bgMusic.volume -= maxVolume / (fadeOutDuration / 100);
+
+                        if (bgMusic.volume <= 0.02) {
+
+                            bgMusic.volume = 0;
+                            bgMusic.pause();
+                            clearInterval(fadeOut);
+
+                        }
+
+                    }, 100);
+                }
+
+            }, 100);
+
         }, 1500);
 
         startScreen.style.transition = "opacity 1s ease";
