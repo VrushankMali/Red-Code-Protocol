@@ -153,3 +153,86 @@
     font-family: "Orbitron";
     src: url("fonts/Orbitron.ttf") format("truetype");
 }
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+/* Tablets and smaller screens */
+@media (max-width: 768px) {
+
+    #title {
+        font-size: clamp(2rem, 7vw, 3.2rem);
+        letter-spacing: 3px;
+        text-align: center;
+        max-width: 90vw;
+    }
+
+    #initialize {
+        padding: 13px 40px;
+        font-size: 14px;
+        letter-spacing: 2.5px;
+    }
+
+    #progress-container {
+        width: min(300px, 70vw);
+    }
+
+    #log {
+        width: 90vw;
+        font-size: 13px;
+    }
+}
+
+
+/* Phones */
+@media (max-width: 480px) {
+
+    #title {
+        font-size: clamp(1.6rem, 8vw, 2.4rem);
+        letter-spacing: 2px;
+        line-height: 1.4;
+        max-width: 92vw;
+    }
+
+    #title {
+        margin-bottom: 35px;
+    }
+
+    #initialize {
+        padding: 12px 32px;
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    #progress-container {
+        width: 70vw;
+        max-width: 300px;
+        margin-top: 25px;
+    }
+
+    #log {
+        width: 90vw;
+        font-size: 11px;
+        line-height: 1.7;
+    }
+}
+
+
+/* Very small phones */
+@media (max-width: 360px) {
+
+    #title {
+        font-size: 1.45rem;
+        letter-spacing: 1px;
+    }
+
+    #initialize {
+        padding: 11px 28px;
+        font-size: 11px;
+    }
+
+    #log {
+        font-size: 10px;
+    }
+}

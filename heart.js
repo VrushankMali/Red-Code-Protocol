@@ -190,16 +190,11 @@ function initHeart(scene) {
 
             delay: Math.random() * 4,
 
-            opacity:
-                0.15 +
-                Math.random() * 0.45,
+            opacity: 0.15 + Math.random() * 0.45,
 
-            speed:
-                0.5 +
-                Math.random() * 1.2,
+            speed: 0.5 + Math.random() * 1.2,
 
-            phase:
-                Math.random() * Math.PI * 2
+            phase: Math.random() * Math.PI * 2
 
         });
     }
