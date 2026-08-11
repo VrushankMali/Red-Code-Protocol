@@ -76,7 +76,7 @@ window.addEventListener("DOMContentLoaded", () => {
         }, 1500);*/
 
         setTimeout(() => {
-            const startTime = 111; // 1:51
+            const startTime = 110; // 1:51
             const endTime = 142;   // 2:30
             const fadeInDuration = 2600;  // 3 seconds
             const fadeOutDuration = 4000; // 4 seconds
@@ -128,7 +128,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
             }, 100);
 
-        }, 1500);
+        }, 1600);
 
         startScreen.style.transition = "opacity 1s ease";
         startScreen.style.opacity = 0;
@@ -203,9 +203,8 @@ window.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
             boot.style.display = "none";
 
-            // NOW start your Three.js world
-            initThree();
-
+            //Start Three.js world
+            const three = initThree();
         }, 1000);
     }
     
@@ -238,6 +237,9 @@ window.addEventListener("DOMContentLoaded", () => {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setClearColor(0x000000);
 
+    //Start Heart.js
+    const updateHeart = initHeart(scene);
+
     window.addEventListener("resize", () => {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
@@ -246,8 +248,12 @@ window.addEventListener("DOMContentLoaded", () => {
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     });
 
+    const clock = new THREE.Clock();
+
     function animate() {
         requestAnimationFrame(animate);
+        const time = clock.getElapsedTime();
+        updateHeart(time);
         renderer.render(scene, camera);
     }
 
