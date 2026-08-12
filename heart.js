@@ -3,6 +3,31 @@ function initHeart(scene) {
     // HEART TEXTURE
     // =====================================================
 
+    const heartWorld = new THREE.Group();
+
+    scene.add(heartWorld);
+
+    function updateHeartScale() {
+
+        const width = window.innerWidth;
+
+        const scale = THREE.MathUtils.clamp(
+            width / 1200,
+            0.55,
+            1
+        );
+
+        heartWorld.scale.set(
+            scale,
+            scale,
+            scale
+        );
+    }
+
+    updateHeartScale();
+
+    window.addEventListener("resize", updateHeartScale);
+
     function createLoveTexture() {
         const canvas = document.createElement("canvas");
 
@@ -40,33 +65,8 @@ function initHeart(scene) {
 
     const heartGroup = new THREE.Group();
 
-    scene.add(heartGroup);
-
-    function updateHeartScale() {
-        const width = window.innerWidth;
-        const height = window.innerHeight;
-
-        let scale;
-
-        if (width <= 480) {
-            // Phone
-            scale = 0.65;
-        }
-        else if (width <= 768) {
-            // Tablet
-            scale = 0.8;
-        }
-        else {
-            // Desktop
-            scale = 1;
-        }
-
-        heartGroup.scale.set(scale, scale, scale);
-    }
-
-updateHeartScale();
-
-window.addEventListener("resize", updateHeartScale);
+    //scene.add(heartGroup);
+    heartWorld.add(heartGroup);
 
     const heartMaterialBase = {
         map: loveTexture,
@@ -285,7 +285,8 @@ window.addEventListener("resize", updateHeartScale);
             1
         );
 
-        scene.add(heart);
+        //scene.add(heart);
+        heartWorld.add(heart);
 
         // Trail
         const trailPositions = [];
@@ -325,7 +326,8 @@ window.addEventListener("resize", updateHeartScale);
                 trailMaterial
             );
 
-        scene.add(trail);
+        //scene.add(trail);
+        heartWorld.add(trail);
 
         orbiters.push({
 
@@ -404,7 +406,8 @@ window.addEventListener("resize", updateHeartScale);
             (Math.random() - 0.5) * 5
         );
 
-        scene.add(sprite);
+        //scene.add(sprite);
+        heartWorld.add(sprite);
 
         floatingParticles.push({
 
