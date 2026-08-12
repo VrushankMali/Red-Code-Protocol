@@ -42,6 +42,32 @@ function initHeart(scene) {
 
     scene.add(heartGroup);
 
+    function updateHeartScale() {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        let scale;
+
+        if (width <= 480) {
+            // Phone
+            scale = 0.65;
+        }
+        else if (width <= 768) {
+            // Tablet
+            scale = 0.8;
+        }
+        else {
+            // Desktop
+            scale = 1;
+        }
+
+        heartGroup.scale.set(scale, scale, scale);
+    }
+
+updateHeartScale();
+
+window.addEventListener("resize", updateHeartScale);
+
     const heartMaterialBase = {
         map: loveTexture,
         transparent: true,
