@@ -78,7 +78,7 @@ window.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
             const startTime = 110; // 1:51
             const endTime = 142;   // 2:30
-            const fadeInDuration = 2600;  // 3 seconds
+            const fadeInDuration = 2600;  // 5 seconds
             const fadeOutDuration = 4000; // 4 seconds
             const maxVolume = 0.8;
 

@@ -218,7 +218,7 @@ function initHeart(scene) {
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
 
-        ctx.fillStyle = "#ff2020";
+        ctx.fillStyle = "#ff0000";
 
         ctx.fillText(
             "♥",
@@ -237,7 +237,7 @@ function initHeart(scene) {
 
     const orbiters = [];
 
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 13; i++) {
 
         const material = new THREE.SpriteMaterial({
             map: heartTexture,
@@ -287,9 +287,9 @@ function initHeart(scene) {
 
         const trailMaterial =
             new THREE.LineBasicMaterial({
-                color: 0x660000,
+                color: 0x770000,
                 transparent: true,
-                opacity: 0.35,
+                opacity: 0.47,
                 blending: THREE.AdditiveBlending
             });
 
@@ -347,7 +347,7 @@ function initHeart(scene) {
 
     const floatingParticles = [];
 
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < 70; i++) {
 
         const material = new THREE.SpriteMaterial({
             map: loveTexture,
