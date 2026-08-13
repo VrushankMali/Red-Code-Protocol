@@ -317,7 +317,7 @@ function initHeart(scene) {
             new THREE.LineBasicMaterial({
                 color: 0x770000,
                 transparent: true,
-                opacity: 0.40,
+                opacity: 0.30,
                 blending: THREE.AdditiveBlending
             });
 
