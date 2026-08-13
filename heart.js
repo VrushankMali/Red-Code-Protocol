@@ -269,7 +269,7 @@ function initHeart(scene) {
         const material = new THREE.SpriteMaterial({
             map: heartTexture,
             transparent: true,
-            opacity: 0.30,
+            opacity: 0.45,
             depthWrite: false,
             blending: THREE.AdditiveBlending
         });
@@ -317,7 +317,7 @@ function initHeart(scene) {
             new THREE.LineBasicMaterial({
                 color: 0x770000,
                 transparent: true,
-                opacity: 0.47,
+                opacity: 0.40,
                 blending: THREE.AdditiveBlending
             });
 
