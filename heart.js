@@ -376,7 +376,7 @@ function initHeart(scene) {
 
     const floatingParticles = [];
 
-    for (let i = 0; i < 260; i++) {
+    for (let i = 0; i < 440; i++) {
 
         const material = new THREE.SpriteMaterial({
             map: loveTexture,
