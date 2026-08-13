@@ -170,7 +170,8 @@ function initHeart(scene) {
         }
 
         // Convert canvas coordinates to Three.js coordinates
-        const posX = (x - 250) / 35;
+        //const posX = (x - 250) / 35;
+        const posX = (x - 250) / 45;
         const posY = (250 - y) / 55;
 
         // Give the heart some depth
@@ -268,7 +269,7 @@ function initHeart(scene) {
         const material = new THREE.SpriteMaterial({
             map: heartTexture,
             transparent: true,
-            opacity: 0.45,
+            opacity: 0.30,
             depthWrite: false,
             blending: THREE.AdditiveBlending
         });
@@ -375,7 +376,7 @@ function initHeart(scene) {
 
     const floatingParticles = [];
 
-    for (let i = 0; i < 70; i++) {
+    for (let i = 0; i < 260; i++) {
 
         const material = new THREE.SpriteMaterial({
             map: loveTexture,
